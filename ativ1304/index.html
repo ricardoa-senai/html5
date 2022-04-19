@@ -2,6 +2,27 @@
 <html lang="en">
 <head>
     <style>
+        
+        @media only screen and (min-width: 600px) {
+            table#fotos {
+                display;
+            }
+
+            table#fotosC {
+                display: none;
+            }
+        }
+        
+        @media only screen and (max-width: 600px) {
+            table#fotos {
+                display: none;
+            }
+
+            table#fotosC {
+                display;
+            }
+        }
+
         body {background-image: url(_imagens/fundo.jpg);
               margin: 0px;}
         
@@ -21,13 +42,26 @@
         table#fotos {width: 70%; margin: auto;
                      border-spacing: 40px;}
         
+        table#fotosC {width: 100%; margin: auto;
+                      border-spacing: 40px;}
+        
         table#fotos td {border: 1px solid black; 
+                        height: 200px;width: 200px;
+                        border-radius: 10px;
+                        box-shadow: 1px 1px 25px black, 0 0 25px white, 0 0 50px white;}
+        
+        table#fotosC td {border: 1px solid black; 
                         height: 200px;width: 200px;
                         border-radius: 10px;
                         box-shadow: 1px 1px 25px black, 0 0 25px white, 0 0 50px white;}
 
         table#fotos td:hover{
-            transform: scale(2);
+            transform: scale(1.5);
+            cursor: pointer;
+        }
+
+        table#fotosC td:hover{
+            transform: scale(1.5);
             cursor: pointer;
         }
 
@@ -92,6 +126,33 @@
             <td id="img5"></td>
             <td id="img6"></td>
             <td id="img7"></td>
+            <td id="img8"></td>
+        </tr>
+    </table>
+
+    <table id="fotosC">
+        <tr>
+            <td id="img1"></td>
+        </tr>
+        <tr>
+            <td id="img2"></td>
+        </tr>
+        <tr>
+            <td id="img3"></td>
+        </tr>
+        <tr>
+            <td id="img4"></td>
+        </tr>
+        <tr>
+            <td id="img5"></td>
+        </tr>
+        <tr>
+            <td id="img6"></td>
+        </tr>
+        <tr>
+            <td id="img7"></td>
+        </tr>
+        <tr>
             <td id="img8"></td>
         </tr>
     </table>
