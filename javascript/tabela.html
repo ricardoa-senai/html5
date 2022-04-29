@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function criarTabela(linha,coluna){
+            var tabela;
+            tabela = "<table border=1 width=50%>";
+            for(x=1;x<=linha;x++){
+                tabela += "  <tr>";
+                for(y=1;y<=coluna;y++){
+                    tabela += "    <td>"+y+" / "+x+"</td>";
+                }
+                tabela += "  </tr>";
+            }
+            tabela += "</table>";
+
+            document.getElementById("tabela").innerHTML = tabela;
+        }
+    </script>
+
+    <button onclick="criarTabela(3,4)">Criar Tabela</button>
+    <p id="tabela"></p>
+</body>
+</html>
