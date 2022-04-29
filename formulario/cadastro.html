@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        td#titulo{text-align: left;font-size: 25px;padding: 10px 10px 10px 50px;}
+
+        button{background-color: #4CAF50;
+               padding: 10px 50px;
+               margin: 10px;
+               border-radius: 5px;
+               cursor: pointer;
+               font-size: larger;}
+
+        input[type=text], select, input[type=date], input[type=radio], input[type=checkbox] {
+            padding: 10px 15px;
+            margin: 5px 0;
+            display: inline-block;
+            border: 1px solid grey;
+            border-radius: 5px;
+            box-sizing: border-box;
+            box-shadow: 2px 2px 5px lightblue;
+            background-color: gainsboro;
+        }
+
+        input[type=text]:focus{
+            background-color: white;
+        }
+
+        table{width: 80%;margin: auto;border: 10px solid red;padding: 30px;}
+
+        td#texto{width: 15%;padding: 5px;text-align: right;}
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table >
+        <tr>
+            <td id="texto">E-mail *</td>
+            <td id="campo"><input type="text" name="" id="" size="40"></td>
+            <td id="texto">Crie uma senha *</td>
+            <td id="campo"><input type="text" name="" id="" size="40"></td>
+        </tr>
+        <tr>
+            <td id="texto">Repetir e-mail *</td>
+            <td id="campo"><input type="text" name="" id="" size="40"></td>
+            <td id="texto">Repetir senha *</td>
+            <td id="campo"><input type="text" name="" id="" size="40"></td>
+        </tr>
+        <tr>
+            <td id="titulo" colspan="2">Dados Cadastrais</td>
+            <td id="titulo" colspan="2">Endereço de entrega</td>
+        </tr>
+        <tr>
+            <td id="texto"></td>
+            <td id="campo">
+               <input type="radio" name="ftpessoa" id=""> Pessoa física &nbsp;&nbsp;&nbsp;
+               <input type="radio" name="ftpessoa" id=""> Pessoa Jurídica 
+            </td>
+            <td id="texto">CEP</td>
+            <td id="campo"><input type="text" name="" id="" size="20"></td>
+        </tr>
+        <tr>
+            <td id="texto">Nome *</td>
+            <td id="campo"><input type="text" name="" id="" size="40"></td>
+            <td id="texto">Rua</td>
+            <td id="campo"><input type="text" name="" id="" size="40"></td>
+        </tr>
+        <tr>
+            <td id="texto">Sobrenome *</td>
+            <td id="campo"><input type="text" name="" id="" size="40"></td>
+            <td id="texto">Número</td>
+            <td id="campo"><input type="text" name="" id="" size="15"></td>
+        </tr>
+        <tr>
+            <td id="texto">Sexo *</td>
+            <td id="campo">
+                <select name="" id="">
+                    <option value="">Masculino</option>
+                    <option value="">Feminino</option>
+                </select>
+            </td>
+            <td id="texto"></td>
+            <td id="campo"><input type="checkbox" name="" id=""> Sem Número</td>
+        </tr>
+        <tr>
+            <td id="texto">CPF *</td>
+            <td id="campo"><input type="text" name="" id="" size="30"></td>
+            <td id="texto">Complemento</td>
+            <td id="campo"><input type="text" name="" id="" size="30"></td>
+        </tr>
+        <tr>
+            <td id="texto">Telefone *</td>
+            <td id="campo"><input type="text" name="" id="" size="30"></td>
+            <td id="texto">Referencia</td>
+            <td id="campo"><input type="text" name="" id="" size="40"></td>
+        </tr>
+        <tr>
+            <td id="texto">Celular</td>
+            <td id="campo"><input type="text" name="" id="" size="30"></td>
+            <td id="texto">Bairro</td>
+            <td id="campo"><input type="text" name="" id="" size="40"></td>
+        </tr>
+        <tr>
+            <td id="texto">Nascimento *</td>
+            <td id="campo"><input type="date" name="" id="" size="30"></td>
+            <td id="texto">Cidade</td>
+            <td id="campo"><input type="text" name="" id="" size="40"></td>
+        </tr>
+        <tr>
+            <td id="texto"></td>
+            <td id="campo">
+                <input type="checkbox" name="" id=""> Receber ofertas e novidades por e-mail
+            </td>
+            <td id="texto">Estado</td>
+            <td id="campo"><input type="text" name="" id="" size="10"></td>
+        </tr>
+        <tr>
+            <td id="texto"></td>
+            <td id="campo"><button>Cadastrar</button></td>
+            <td id="texto"></td>
+            <td id="campo"></td>
+        </tr>
+    </table>
+</body>
+</html>
