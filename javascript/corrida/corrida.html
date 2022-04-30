@@ -50,7 +50,11 @@
                     <tr>
                             
                         <td style="width: 10%;text-align: center;">
-                            <p><button id="btini" style="padding: 5px 20px;cursor: pointer;display: none;" onclick="iniciar()">Inicial</button></p>
+                            <p>
+                                <h3 id="vitoria"></h3>
+                                <button id="btini" style="padding: 5px 20px;cursor: pointer;display: none;" onclick="iniciar()">Inicial</button>
+                                <button id="btreini" style="padding: 5px 20px;cursor: pointer;display: none;" onclick="reiniciar()">Reiniciar</button>
+                            </p>
                         </td>
 
                         <td id="botao" style="width: 15%;">
@@ -170,6 +174,12 @@
             document.getElementById("lugar3").style.border = "2px solid rgb(223, 217, 217)";
             document.getElementById("lugar4").style.border = "2px solid rgb(223, 217, 217)";
             document.getElementById("lugar5").style.border = "2px solid rgb(223, 217, 217)";
+
+            document.getElementById("lugar1").style.background = "#fff";
+            document.getElementById("lugar2").style.background = "#fff";
+            document.getElementById("lugar3").style.background = "#fff";
+            document.getElementById("lugar4").style.background = "#fff";
+            document.getElementById("lugar5").style.background = "#fff";
         }
 
         function selecionar(car){
@@ -225,30 +235,50 @@
             iniciado = true;
         }
 
+        function reiniciar(){
+            document.getElementById("btreini").style.display = "none";
+            document.getElementById("vitoria").innerHTML = "";
+            iniciado = false;
+        }
+
+        function vitoria(car){
+            if(car == carroselect){
+                document.getElementById("vitoria").innerHTML = "Você venceu.";
+            } else {
+                document.getElementById("vitoria").innerHTML = "Carro "+car+" venceu."; 
+            }
+            document.getElementById("btreini").style.display = "inline";
+        }
+
         function CorridaTerminou(){
             if(posicao1>=final){
                 clearInterval(interval);
                 document.getElementById("lugar1").style.background = "rgb(112, 255, 179)";
+                vitoria(1);
             }
 
             if(posicao2>=final){
                 clearInterval(interval);
                 document.getElementById("lugar2").style.background = "rgb(112, 255, 179)";
+                vitoria(2);
             }
             
             if(posicao3>=final){
                 clearInterval(interval);
                 document.getElementById("lugar3").style.background = "rgb(112, 255, 179)";
+                vitoria(3);
             }
             
             if(posicao4>=final){
                 clearInterval(interval);
                 document.getElementById("lugar4").style.background = "rgb(112, 255, 179)";
+                vitoria(4);
             }
             
             if(posicao5>=final){
                 clearInterval(interval);
                 document.getElementById("lugar5").style.background = "rgb(112, 255, 179)";
+                vitoria(5);
             }
         }
 
