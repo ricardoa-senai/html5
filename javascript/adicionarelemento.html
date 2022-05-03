@@ -8,13 +8,11 @@
 </head>
 <body id="corpo">
     <h1>Adicionar Elemento</h1>
-    <p>Digite o Texto: <input type="text" name="" id="texto"></p>
     <p><button onclick="adicionar()">Adicionar</button></p>
     <script>
         function adicionar(){
-            var texto = document.getElementById("texto").value;
             var para = document.createElement("p");
-            para.innerHTML = texto;
+            para.innerHTML = "Boa Noite";
             var corpo = document.getElementById("corpo");
             corpo.appendChild(para);
         }
