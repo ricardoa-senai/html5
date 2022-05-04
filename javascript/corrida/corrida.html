@@ -32,10 +32,40 @@
             <td></td>
         </tr>
         <tr>
-            <td colspan="5">
+            <td id="carro1" colspan="5">
                 <img src="carro1.png" alt="">
             </td>
         </tr>
+        <tr>
+            <td id="carro2" colspan="5">
+                <img src="carro2.png" alt="">
+            </td>
+        </tr>
     </table>
+
+    <script>
+        var posicao1 = 1;
+        var posicao2 = 1;
+        var veloc1 = 1;
+        var veloc2 = 1;
+        var carro1 = document.getElementById("carro1");        
+        var carro2 = document.getElementById("carro2");
+
+        setInterval(corrida,100);
+
+        function velocidade(){
+            veloc1 = Math.floor(Math.random() * 11);            
+            veloc2 = Math.floor(Math.random() * 11);
+        }
+        
+        function corrida(){
+            posicao1 += veloc1;
+            posicao2 += veloc2;
+            carro1.style.paddingLeft = posicao1+"px";
+            carro2.style.paddingLeft = posicao2+"px";
+            velocidade();
+        }
+  
+    </script>
 </body>
 </html>
