@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id="corpo">
+    <h1>Remover Elemento</h1>
+    <p><button onclick="adicionar();">Adicinar</button></p>
+    <p><button onclick="remover(3);">Remover</button></p>
+    <p><input type="number" name="" id="numero"></p>
+    <script>
+        var cont = 1;
+        function adicionar(){
+            var para = document.createElement("p");
+            para.innerHTML = "Boa Noite "+cont;
+            para.id = "texto"+cont;
+            var corpo = document.getElementById("corpo");
+            corpo.appendChild(para);
+            cont++;
+        }
+
+        function remover(num){
+            var pai = document.getElementById("corpo");
+            var filho = document.getElementById("texto"+document.getElementById("numero").value);
+            pai.removeChild(filho);
+        }
+    </script>
+</body>
+</html>
