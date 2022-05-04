@@ -4,10 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Corrida - 2022</title>
     <style>
         table{
             width: 100%;
+<<<<<<< HEAD
+        }
+
+        table td{
+            width: 20%;
+        }
+
+        td#carros{
+            height: 100px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        td#carro1,td#carro2,td#carro3,td#carro4{
+            height: 120px;
+        }
+
+        img{
+            width: 180px;
+            height: 60px;
+        }
+
+        button{
+            padding: 10px 30px;
+            cursor: pointer;
+        }
+=======
         }
         
         table td{
@@ -18,11 +45,114 @@
             width: 150px;
             height: 50px;
         }
+>>>>>>> 1c5899adc1437e8dd2d3383707df1bb1b390c321
     </style>
 </head>
 <body>
     <table border="1">
         <tr>
+<<<<<<< HEAD
+            <td colspan="5" style="text-align: center;">
+                <h2>Corrida - 2022</h2>
+                <p>Selecione um carro abaixo para iniciar a corrida</p>
+            </td>
+        </tr>
+        <tr>
+            <td id="carros"><button id="btiniciar" onclick="f_iniciar()">Inicar Corrida</button></td>
+            <td id="carros">
+                <img src="carro1.png" alt="">
+                <figcaption>Carro 1</figcaption>
+            </td>
+            <td id="carros">
+                <img src="carro2.png" alt="">
+                <figcaption>Carro 2</figcaption>
+            </td>
+            <td id="carros">
+                <img src="carro3.png" alt="">
+                <figcaption>Carro 3</figcaption>
+            </td>
+            <td id="carros">
+                <img src="carro4.png" alt="">
+                <figcaption>Carro 4</figcaption>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" id="carro1">
+                <img src="carro1.png" alt="">
+                <figcaption id="veloc1">0 km/h</figcaption>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" id="carro2">
+                <img src="carro2.png" alt="">
+                <figcaption id="veloc2">0 km/h</figcaption>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" id="carro3">
+                <img src="carro3.png" alt="">
+                <figcaption id="veloc3">0 km/h</figcaption>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" id="carro4">
+                <img src="carro4.png" alt="">
+                <figcaption id="veloc4">0 km/h</figcaption>
+            </td>
+        </tr>
+
+        <script>
+            var carro1 = document.getElementById("carro1");
+            var carro2 = document.getElementById("carro2");
+            var carro3 = document.getElementById("carro3");
+            var carro4 = document.getElementById("carro4");
+            var posicao1 = 1;
+            var posicao2 = 1;
+            var posicao3 = 1;
+            var posicao4 = 1;
+            var veloc1 = 0;
+            var veloc2 = 0;
+            var veloc3 = 0;
+            var veloc4 = 0;
+            var cont = 1;
+            var iniciar;
+            
+            function f_iniciar(){
+                iniciar = setInterval(corrida,200);
+            }
+
+            function velocidade(){
+                veloc1 = Math.floor(Math.random() * 20)+1;
+                veloc2 = Math.floor(Math.random() * 20)+1;
+                veloc3 = Math.floor(Math.random() * 20)+1;
+                veloc4 = Math.floor(Math.random() * 20)+1;
+
+                document.getElementById("veloc1").innerHTML = veloc1+"0 km/h";
+                document.getElementById("veloc2").innerHTML = veloc2+"0 km/h";
+                document.getElementById("veloc3").innerHTML = veloc3+"0 km/h";
+                document.getElementById("veloc4").innerHTML = veloc4+"0 km/h";
+            }
+
+            function corrida(){
+                posicao1 += veloc1;
+                posicao2 += veloc2;
+                posicao3 += veloc3;
+                posicao4 += veloc4;
+
+                carro1.style.paddingLeft = posicao1+"px";
+                carro2.style.paddingLeft = posicao2+"px";
+                carro3.style.paddingLeft = posicao3+"px";
+                carro4.style.paddingLeft = posicao4+"px";
+                if(cont == 3){
+                    velocidade();
+                    cont = 1;
+                }
+
+                cont++;
+                
+            }
+        </script>
+=======
             <td>
                 <button>Iniciar</button>
             </td>
@@ -36,11 +166,15 @@
                 <img src="carro1.png" alt="">
             </td>
         </tr>
+<<<<<<< HEAD
         <tr>
             <td id="carro2" colspan="5">
                 <img src="carro2.png" alt="">
             </td>
         </tr>
+=======
+>>>>>>> 1c5899adc1437e8dd2d3383707df1bb1b390c321
+>>>>>>> a15fc0a55ae05c2c753059a875aed307f49b7db0
     </table>
 
     <script>
