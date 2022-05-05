@@ -6,167 +6,275 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Corrida - 2022</title>
     <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            background-image: url(fundo.png);
+            background-size: cover;
+        }
+
         table{
             width: 100%;
-<<<<<<< HEAD
+            height: 100%;
+            border-spacing: 10px;
+            background-color: rgba(255, 255, 255, 0.9);
         }
 
         table td{
             width: 20%;
+            border-radius: 6px;
         }
 
-        td#carros{
+        td#titulo{
+            border: 1px solid #0886ed;
+            background-image: linear-gradient(to right, rgba(2, 2, 89, 1),rgba(100, 212, 243, 0.495));
+            font-family: Russo One;
+            font-size: 30px;
+            color: #FFFFFF;
+        }
+
+        td#selc_carro1,td#selc_carro2,td#selc_carro3,td#selc_carro4{
             height: 100px;
             text-align: center;
             cursor: pointer;
+            box-shadow: 0 0 3px #FFFFFF, 0 0 15px #0886ed;
+            border: 1px solid black;
+            background-color: rgba(255, 255, 255, 1);
+            font-family: Russo One;
+            font-size: 15px;
+            text-shadow: 2px 2px 5px blue;
+        }
+
+        td#btcarros{
+            height: 100px;
+            text-align: center;
         }
 
         td#carro1,td#carro2,td#carro3,td#carro4{
-            height: 120px;
+            height: 110px;
+            box-shadow: 0 0 3px #FFFFFF, 0 0 3px #0886ed;
+            background-image: url(pista.png);
         }
 
-        img{
+        img#carros{
             width: 180px;
             height: 60px;
         }
 
-        button{
-            padding: 10px 30px;
-            cursor: pointer;
-        }
-=======
-        }
-        
-        table td{
-            width: 20%;
+        img#bandeira{
+            display: none;
+            height: 95px;
         }
 
-        img{
-            width: 150px;
-            height: 50px;
+        button#btiniciar,button#btreiniciar{
+            padding: 15px 40px;
+            cursor: pointer;
+            display: none;
+            border-radius: 7px;
+            background-color: #0886ed;
+            font-family: Russo One;
+            font-size: 20px;
+            color: white;
+            text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
         }
->>>>>>> 1c5899adc1437e8dd2d3383707df1bb1b390c321
+
+        h1{
+            font-family: Russo One;
+            font-size: 20px;
+            color: white;
+            text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+        }
+
+        button#btiniciar:hover{
+            background-color: red;
+        }
     </style>
 </head>
 <body>
-    <table border="1">
-        <tr>
-<<<<<<< HEAD
-            <td colspan="5" style="text-align: center;">
-                <h2>Corrida - 2022</h2>
-                <p>Selecione um carro abaixo para iniciar a corrida</p>
-            </td>
-        </tr>
-        <tr>
-            <td id="carros"><button id="btiniciar" onclick="f_iniciar()">Inicar Corrida</button></td>
-            <td id="carros">
-                <img src="carro1.png" alt="">
-                <figcaption>Carro 1</figcaption>
-            </td>
-            <td id="carros">
-                <img src="carro2.png" alt="">
-                <figcaption>Carro 2</figcaption>
-            </td>
-            <td id="carros">
-                <img src="carro3.png" alt="">
-                <figcaption>Carro 3</figcaption>
-            </td>
-            <td id="carros">
-                <img src="carro4.png" alt="">
-                <figcaption>Carro 4</figcaption>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="5" id="carro1">
-                <img src="carro1.png" alt="">
-                <figcaption id="veloc1">0 km/h</figcaption>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="5" id="carro2">
-                <img src="carro2.png" alt="">
-                <figcaption id="veloc2">0 km/h</figcaption>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="5" id="carro3">
-                <img src="carro3.png" alt="">
-                <figcaption id="veloc3">0 km/h</figcaption>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="5" id="carro4">
-                <img src="carro4.png" alt="">
-                <figcaption id="veloc4">0 km/h</figcaption>
-            </td>
-        </tr>
-
-        <script>
-            var carro1 = document.getElementById("carro1");
-            var carro2 = document.getElementById("carro2");
-            var carro3 = document.getElementById("carro3");
-            var carro4 = document.getElementById("carro4");
-            var posicao1 = 1;
-            var posicao2 = 1;
-            var posicao3 = 1;
-            var posicao4 = 1;
-            var veloc1 = 0;
-            var veloc2 = 0;
-            var veloc3 = 0;
-            var veloc4 = 0;
-            var cont = 1;
-            var iniciar;
-            
-            function f_iniciar(){
-                iniciar = setInterval(corrida,200);
-            }
-
-            function velocidade(){
-                veloc1 = Math.floor(Math.random() * 20)+1;
-                veloc2 = Math.floor(Math.random() * 20)+1;
-                veloc3 = Math.floor(Math.random() * 20)+1;
-                veloc4 = Math.floor(Math.random() * 20)+1;
-
-                document.getElementById("veloc1").innerHTML = veloc1+"0 km/h";
-                document.getElementById("veloc2").innerHTML = veloc2+"0 km/h";
-                document.getElementById("veloc3").innerHTML = veloc3+"0 km/h";
-                document.getElementById("veloc4").innerHTML = veloc4+"0 km/h";
-            }
-
-            function corrida(){
-                posicao1 += veloc1;
-                posicao2 += veloc2;
-                posicao3 += veloc3;
-                posicao4 += veloc4;
-
-                carro1.style.paddingLeft = posicao1+"px";
-                carro2.style.paddingLeft = posicao2+"px";
-                carro3.style.paddingLeft = posicao3+"px";
-                carro4.style.paddingLeft = posicao4+"px";
-                if(cont == 3){
-                    velocidade();
-                    cont = 1;
-                }
-
-                cont++;
+        <table id="corrida">
+            <tr>
+                <td id="titulo" colspan="5" style="text-align: center;">
+                    <h2>Corrida - 2022</h2>
+                </td>
+            </tr>
+            <tr>
+                <td id="btcarros">
+                    <img id="bandeira" src="race-flag-7.gif" alt="">
+                    <h1 id="frase">Selecione seu Carro <br> para inicia a corrida </h1> 
+                    <button id="btiniciar" onclick="f_iniciar()">Inicar Corrida</button>
+                    <button id="btreiniciar" onclick="f_reiniciar()">Reinicar Corrida</button>
+                </td>
+                <td id="selc_carro1" onclick="select('selc_carro1')">
+                    <img id="carros" src="carro1.png" alt="">
+                    <figcaption>Carro 1</figcaption>
+                </td>
+                <td id="selc_carro2" onclick="select('selc_carro2')">
+                    <img id="carros" src="carro2.png" alt="">
+                    <figcaption>Carro 2</figcaption>
+                </td>
+                <td id="selc_carro3" onclick="select('selc_carro3')">
+                    <img id="carros" src="carro3.png" alt="">
+                    <figcaption>Carro 3</figcaption>
+                </td>
+                <td id="selc_carro4" onclick="select('selc_carro4')">
+                    <img id="carros" src="carro4.png" alt="">
+                    <figcaption>Carro 4</figcaption>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5" id="carro1">
+                    <img id="carros" src="carro1.png" alt="">
+                    <figcaption id="veloc1">0 km/h</figcaption>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5" id="carro2">
+                    <img id="carros" src="carro2.png" alt="">
+                    <figcaption id="veloc2">0 km/h</figcaption>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5" id="carro3">
+                    <img id="carros" src="carro3.png" alt="">
+                    <figcaption id="veloc3">0 km/h</figcaption>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5" id="carro4">
+                    <img id="carros" src="carro4.png" alt="">
+                    <figcaption id="veloc4">0 km/h</figcaption>
+                </td>
+            </tr>
+    
+            <script>
+                var carro1 = document.getElementById("carro1");
+                var carro2 = document.getElementById("carro2");
+                var carro3 = document.getElementById("carro3");
+                var carro4 = document.getElementById("carro4");
+                var final = (parseInt(document.getElementById("corrida").clientWidth)-220)
+                var posicao1 = 1;
+                var posicao2 = 1;
+                var posicao3 = 1;
+                var posicao4 = 1;
+                var veloc1   = 0;
+                var veloc2   = 0;
+                var veloc3   = 0;
+                var veloc4   = 0;
+                var cont     = 1;
+                var iniciar  = 0;
                 
-            }
-        </script>
-=======
-            <td>
-                <button>Iniciar</button>
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td colspan="5">
-                <img src="carro1.png" alt="">
-            </td>
-        </tr>
->>>>>>> 1c5899adc1437e8dd2d3383707df1bb1b390c321
-    </table>
+                function f_iniciar(){
+                    iniciar = setInterval(corrida,100);
+                    document.getElementById("btiniciar").style.display = "none";
+                    document.getElementById("bandeira").style.display = "inline";
+                }
+    
+                function f_reiniciar(){
+                    document.getElementById("btreiniciar").style.display = "none";
+                    posicao1 = 1;
+                    posicao2 = 1;
+                    posicao3 = 1;
+                    posicao4 = 1;
+                    veloc1   = 0;
+                    veloc2   = 0;
+                    veloc3   = 0;
+                    veloc4   = 0;
+                    cont     = 1;
+                    iniciar  = 0;
+                    document.getElementById("veloc1").innerHTML = veloc1+" km/h";
+                    document.getElementById("veloc2").innerHTML = veloc2+" km/h";
+                    document.getElementById("veloc3").innerHTML = veloc3+" km/h";
+                    document.getElementById("veloc4").innerHTML = veloc4+" km/h";
+    
+                    carro1.style.paddingLeft = posicao1+"px";
+                    carro2.style.paddingLeft = posicao2+"px";
+                    carro3.style.paddingLeft = posicao3+"px";
+                    carro4.style.paddingLeft = posicao4+"px";
+    
+                    document.getElementById("selc_carro1").style.backgroundColor = "#FFFFFF";
+                    document.getElementById("selc_carro2").style.backgroundColor = "#FFFFFF";
+                    document.getElementById("selc_carro3").style.backgroundColor = "#FFFFFF";
+                    document.getElementById("selc_carro4").style.backgroundColor = "#FFFFFF";
+                }
+    
+                function velocidade(){
+                    veloc1 = Math.floor(Math.random() * 20)+1;
+                    veloc2 = Math.floor(Math.random() * 20)+1;
+                    veloc3 = Math.floor(Math.random() * 20)+1;
+                    veloc4 = Math.floor(Math.random() * 20)+1;
+    
+                    document.getElementById("veloc1").innerHTML = veloc1+"0 km/h";
+                    document.getElementById("veloc2").innerHTML = veloc2+"0 km/h";
+                    document.getElementById("veloc3").innerHTML = veloc3+"0 km/h";
+                    document.getElementById("veloc4").innerHTML = veloc4+"0 km/h";
+                }
+    
+                function corrida(){
+                    posicao1 += veloc1;
+                    posicao2 += veloc2;
+                    posicao3 += veloc3;
+                    posicao4 += veloc4;
+    
+                    carro1.style.paddingLeft = posicao1+"px";
+                    carro2.style.paddingLeft = posicao2+"px";
+                    carro3.style.paddingLeft = posicao3+"px";
+                    carro4.style.paddingLeft = posicao4+"px";
+                    if(cont == 3){
+                        velocidade();
+                        cont = 1;
+                    }
+    
+    
+                    if(posicao1 >= final || posicao2 >= final || posicao3 >= final || posicao4 >= final){
+                        clearInterval(iniciar);
+                        vencedor();
+                        document.getElementById("btreiniciar").style.display = "inline";
+                        document.getElementById("bandeira").style.display = "none";
+                    } else {
+                       cont++; 
+                    }                
+                    
+                }
+    
+                
+    
+                function vencedor(){ 
+                    var distancia = Math.max(posicao1,posicao2,posicao3,posicao4);               
+                    switch (distancia){
+                        case posicao1:
+                           document.getElementById("selc_carro1").style.backgroundColor = "rgb(121, 193, 121, 1)"; 
+                           break;
+                        case posicao2:
+                           document.getElementById("selc_carro2").style.backgroundColor = "rgb(121, 193, 121, 1)"; 
+                           break;
+                        case posicao3:
+                           document.getElementById("selc_carro3").style.backgroundColor = "rgb(121, 193, 121, 1)"; 
+                           break;
+                        case posicao4:
+                           document.getElementById("selc_carro4").style.backgroundColor = "rgb(121, 193, 121, 1)"; 
+                           break;
+    
+                    } 
+                }
+    
+                function select(carro){
+                    if(iniciar == 0){
+    
+                        document.getElementById("selc_carro1").style.backgroundColor = "#FFFFFF";
+                        document.getElementById("selc_carro2").style.backgroundColor = "#FFFFFF";
+                        document.getElementById("selc_carro3").style.backgroundColor = "#FFFFFF";
+                        document.getElementById("selc_carro4").style.backgroundColor = "#FFFFFF";
+    
+                        var area = document.getElementById(carro);
+    
+                        area.style.backgroundColor = "red";
+
+                        document.getElementById("frase").style.display = "none";
+    
+                        document.getElementById("btiniciar").style.display = "inline";
+                    }
+                }
+            </script>
+        </table>
 </body>
 </html>
