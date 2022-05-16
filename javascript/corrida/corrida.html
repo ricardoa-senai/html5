@@ -9,7 +9,7 @@
         html, body {
             height: 100%;
             margin: 0;
-            background-image: url(fundo.png);
+            background-image: url(fundo.jpg);
             background-size: cover;
         }
 
@@ -66,7 +66,7 @@
             height: 95px;
         }
 
-        button#btiniciar,button#btreiniciar{
+        button#btiniciar{
             padding: 15px 40px;
             cursor: pointer;
             display: none;
@@ -83,14 +83,29 @@
             font-size: 20px;
             color: white;
             text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+            cursor: pointer;
         }
 
         button#btiniciar:hover{
             background-color: red;
         }
+
+        img#fogos{
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+        }
+
+        h1#frasevenceu{
+            display: none;
+        }
     </style>
 </head>
 <body>
+        
         <table id="corrida">
             <tr>
                 <td id="titulo" colspan="5" style="text-align: center;">
@@ -101,8 +116,8 @@
                 <td id="btcarros">
                     <img id="bandeira" src="race-flag-7.gif" alt="">
                     <h1 id="frase">Selecione seu Carro <br> para inicia a corrida </h1> 
+                    <h1 id="frasevenceu" onclick="f_reiniciar()">Você Venceu!!!</h1> 
                     <button id="btiniciar" onclick="f_iniciar()">Inicar Corrida</button>
-                    <button id="btreiniciar" onclick="f_reiniciar()">Reinicar Corrida</button>
                 </td>
                 <td id="selc_carro1" onclick="select('selc_carro1')">
                     <img id="carros" src="carro1.png" alt="">
@@ -151,7 +166,8 @@
                 var carro2 = document.getElementById("carro2");
                 var carro3 = document.getElementById("carro3");
                 var carro4 = document.getElementById("carro4");
-                var final = (parseInt(document.getElementById("corrida").clientWidth)-220)
+                var final = (parseInt(document.getElementById("corrida").clientWidth)-220);
+                var selecionado = 0;
                 var posicao1 = 1;
                 var posicao2 = 1;
                 var posicao3 = 1;
@@ -170,7 +186,7 @@
                 }
     
                 function f_reiniciar(){
-                    document.getElementById("btreiniciar").style.display = "none";
+                    document.getElementById("frasevenceu").style.display = "none";
                     posicao1 = 1;
                     posicao2 = 1;
                     posicao3 = 1;
@@ -227,8 +243,7 @@
     
                     if(posicao1 >= final || posicao2 >= final || posicao3 >= final || posicao4 >= final){
                         clearInterval(iniciar);
-                        vencedor();
-                        document.getElementById("btreiniciar").style.display = "inline";
+                        vencedor();                        
                         document.getElementById("bandeira").style.display = "none";
                     } else {
                        cont++; 
@@ -239,35 +254,87 @@
                 
     
                 function vencedor(){ 
-                    var distancia = Math.max(posicao1,posicao2,posicao3,posicao4);               
+                    var distancia = Math.max(posicao1,posicao2,posicao3,posicao4); 
+                    var vencedor = 0;              
                     switch (distancia){
                         case posicao1:
-                           document.getElementById("selc_carro1").style.backgroundColor = "rgb(121, 193, 121, 1)"; 
+                           document.getElementById("selc_carro1").style.boxShadow = "0 0 3px #FFFFFF, 0 0 20px green"; 
+                           vencedor = 1;
                            break;
                         case posicao2:
-                           document.getElementById("selc_carro2").style.backgroundColor = "rgb(121, 193, 121, 1)"; 
+                           document.getElementById("selc_carro2").style.boxShadow = "0 0 3px #FFFFFF, 0 0 20px green";  
+                           vencedor = 2;
                            break;
                         case posicao3:
-                           document.getElementById("selc_carro3").style.backgroundColor = "rgb(121, 193, 121, 1)"; 
+                           document.getElementById("selc_carro3").style.boxShadow = "0 0 3px #FFFFFF, 0 0 20px green"; 
+                           vencedor = 3;
                            break;
                         case posicao4:
-                           document.getElementById("selc_carro4").style.backgroundColor = "rgb(121, 193, 121, 1)"; 
+                           document.getElementById("selc_carro4").style.boxShadow = "0 0 3px #FFFFFF, 0 0 20px green"; 
+                           vencedor = 4;
                            break;
     
-                    } 
+                    }
+                    
+                    if (vencedor == selecionado){
+                        document.getElementById("btcarros").style.backgroundImage = "url(fogos.gif)";
+                        document.getElementById("frasevenceu").style.display = "inline";
+                        document.getElementById("frasevenceu").innerHTML = "Você Venceu !!!";
+                    } else {
+                        document.getElementById("frase").innerHTML = "O carro "+vencedor+" Venceu !!!";
+                        document.getElementById("frase").style.display = "inline";
+                    }
+
+                    iniciar = 0;
+                }
+
+                function zerar(){
+
+                    document.getElementById("frasevenceu").style.display = "none";
+                    posicao1 = 1;
+                    posicao2 = 1;
+                    posicao3 = 1;
+                    posicao4 = 1;
+                    veloc1   = 0;
+                    veloc2   = 0;
+                    veloc3   = 0;
+                    veloc4   = 0;
+                    cont     = 1;
+                    iniciar  = 0;
+                    document.getElementById("veloc1").innerHTML = veloc1+" km/h";
+                    document.getElementById("veloc2").innerHTML = veloc2+" km/h";
+                    document.getElementById("veloc3").innerHTML = veloc3+" km/h";
+                    document.getElementById("veloc4").innerHTML = veloc4+" km/h";
+    
+                    carro1.style.paddingLeft = posicao1+"px";
+                    carro2.style.paddingLeft = posicao2+"px";
+                    carro3.style.paddingLeft = posicao3+"px";
+                    carro4.style.paddingLeft = posicao4+"px";
+
+                    document.getElementById("btcarros").style.backgroundColor = "#FFFFFF";
+                    document.getElementById("btcarros").style.backgroundImage = "";
                 }
     
                 function select(carro){
                     if(iniciar == 0){
-    
-                        document.getElementById("selc_carro1").style.backgroundColor = "#FFFFFF";
-                        document.getElementById("selc_carro2").style.backgroundColor = "#FFFFFF";
-                        document.getElementById("selc_carro3").style.backgroundColor = "#FFFFFF";
-                        document.getElementById("selc_carro4").style.backgroundColor = "#FFFFFF";
-    
+                        zerar();
+                        document.getElementById("selc_carro1").style.border = "1px solid black";
+                        document.getElementById("selc_carro2").style.border = "1px solid black";
+                        document.getElementById("selc_carro3").style.border = "1px solid black";
+                        document.getElementById("selc_carro4").style.border = "1px solid black";
+                        
+                        document.getElementById("selc_carro1").style.boxShadow = "0 0 3px #FFFFFF, 0 0 15px #0886ed";
+                        document.getElementById("selc_carro2").style.boxShadow = "0 0 3px #FFFFFF, 0 0 15px #0886ed";
+                        document.getElementById("selc_carro3").style.boxShadow = "0 0 3px #FFFFFF, 0 0 15px #0886ed";
+                        document.getElementById("selc_carro4").style.boxShadow = "0 0 3px #FFFFFF, 0 0 15px #0886ed";
+                        
                         var area = document.getElementById(carro);
+
+                        selecionado = parseInt(carro.replace(/[^0-9]/g, ''));
     
-                        area.style.backgroundColor = "red";
+                        area.style.border = "1px solid red";
+
+                        area.style.boxShadow = "0 0 3px #FFFFFF, 0 0 15px red";
 
                         document.getElementById("frase").style.display = "none";
     
